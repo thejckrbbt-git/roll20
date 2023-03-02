@@ -1,0 +1,696 @@
+.general {
+    background-color:transparent;
+  }
+  
+  
+  /* UI AND CSS RESET
+  .ui-dialog .charsheet select,
+  .ui-dialog .charsheet textarea,
+  .ui-dialog .charsheet input,
+  .ui-dialog .charsheet .uneditable-input,
+  .ui-dialog .charsheet label,
+  .ui-dialog .charsheet button{
+    all: initial;
+  }
+  */
+  .ui-dialog .tab-content .charsheet
+  
+  /* CSS WIZARDY */
+  
+  .autoExpand {
+      overflow: hidden; /* hides overflow that is caused by the span */
+      position: relative; /* Allows the input's absolute positioning to be relative to this parent div */
+      min-width: 50px; /* Whatever feels good to you, prevents a new span from collapsing to 0. */
+      width: fit-content /* Will fit the width to the contents without going outside itself or collapsing smaller than its content, though we will be using min-width in the case where there's no content. */
+      height:20px; /* Prevent the span from defining the height of the input container which can't be multiline */
+  }
+  .autoExpand span {
+      visibility: hidden;
+      font-size: 1em;
+      padding: 0 8px; /* Matching my input's padding so that the widths are correct */
+  }
+  .autoExpand input {
+      position: absolute; /* removes the input from the DOM flow, allowing the span to exist in the same space */
+      width: 100%; /* Inputs match the width of the parent element as defined by the spans */
+      font-size: 1em;
+  }
+  
+  /* Smaller margins - remove these if you want the huge default left margin */
+  .sheet-rolltemplate-custom {
+    margin-left: 0; /* -37px; */
+  }
+  .withoutavatars .sheet-rolltemplate-custom {
+    margin-left: 0; /* -7px; */
+  }
+  
+  .sheet-rolltemplate-custom .sheet-container {
+    border: 1px solid;
+    /* by default, the border is the same color as the header. You can change this here, e.g. to black */
+    border-color: #FFF;
+  }
+  
+  /* Header formatting - title and subtitle */
+  .sheet-rolltemplate-custom .sheet-header {
+    background-color: var(--header-bg-color); /* Background color of Roll Template*/
+    /* change text-align to center to center the header text */
+    text-align: left;
+    color: var(--header-text-color);
+    padding: 5px;
+    font-size:1em;
+  }
+  .sheet-rolltemplate-custom .sheet-title {
+    color:#F5EBE0;
+    font-size:1.3em;
+    font-weight:bold;
+    padding: 2px;
+    background: #505168;
+    
+  }
+  .sheet-rolltemplate-custom .sheet-subtitle {
+    color:#F5EBE0;
+    font-size:.9em;
+    background-color:#27233A;
+    
+  }
+  
+  .sheet-rolltemplate-custom .inlinerollresult  {
+      display: inline-block;
+      min-width: 1.5em;
+      text-align: center;
+      border: 2px solid rgba(167, 168, 170,1);
+      color:#70dd82;
+      background-color:#505168;
+  }
+  
+  
+  .sheet-rolltemplate-custom .sheet-container .roll-row .inlinerollresult{
+    background-color:transparent; /*Declare your coloring here*/
+    text-align: left;
+  }
+  
+  
+  .sheet-rolltemplate-custom .inlinerollresult.fullcrit {
+      border: 2px solid #3FB315;
+  }
+  
+  .sheet-rolltemplate-custom .inlinerollresult.fullfail {
+      border: 2px solid #B31515;
+  }
+  
+  .sheet-rolltemplate-custom .inlinerollresult.importantroll {
+      border: 2px solid #4A57ED;
+  }
+  
+  /* example colors */
+  .sheet-rolltemplate-custom .sheet-container {
+    /* this is the default color: rgba(112,32,130,1) */
+    --header-bg-color: #D6CCC2;
+    --header-text-color: #000;
+  }
+  
+  /* Allprops part */
+  .sheet-rolltemplate-custom .sheet-content {
+    display: grid;
+    background: #FFF;
+    /* Header formatting - modify the column layout below */
+    grid-template-columns: auto auto;
+    /* Line height to match default roll template */
+    line-height:1.2em;
+  }
+  .sheet-rolltemplate-custom .sheet-content > div {
+    padding: 5px;
+  }
+  
+  /* Left column */
+  .sheet-rolltemplate-custom .sheet-content .sheet-key {
+    font-weight: bold;
+    padding-right: 10px;
+    text-align: right;
+  }
+  
+  /* Empty rule, use this if you want to change the right column 
+  .sheet-rolltemplate-custom .sheet-value {
+  }
+  */
+  
+  /* TABS TABS TABS */
+  /*Configure the tab buttons*/
+  .sheet-dashboard,
+  .sheet-character,
+  .sheet-inventory,
+  .sheet-configuration,
+  .sheet-journal {
+      display: none;
+  }
+  
+  /* show the selected tab */
+  .sheet-tabstoggle[value="dashboard"] ~ div.sheet-dashboard,
+  .sheet-tabstoggle[value="character"] ~ div.sheet-character,
+  .sheet-tabstoggle[value="inventory"] ~ div.sheet-inventory,
+  .sheet-tabstoggle[value="configuration"] ~ .sheet-configuration,
+  .sheet-tabstoggle[value="journal"] ~ div.sheet-journal {
+      display: block;
+  }
+  
+  /* Make even-numbered rows grey */
+  .sheet-rolltemplate-custom .sheet-content :nth-child(4n+3),
+  .sheet-rolltemplate-custom .sheet-content :nth-child(4n) {
+    background:#EEE;
+  }
+  
+  /* Description field */
+  .sheet-rolltemplate-custom .sheet-desc {
+    grid-column: span 2;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  
+  /* Custom Junk */
+  
+  span.yellow {
+    display: block;
+    width: 135px;
+    height: 50px;
+    padding: 3px;
+    margin: 2px;
+    border: 5px solid #ffca3a;
+    border-radius: 7px;  
+    background-color: black ;
+    color: white;  
+  }
+  span.green {
+    display: block;
+    width: 135px;
+    height: 50px;
+    padding: 3px;
+    margin: 2px;
+    border: 5px solid #8ac926;
+    border-radius: 7px;   
+    background-color: black; 
+    color: white;
+  }
+  span.blue {
+    display: block;
+    width: 135px;
+    height: 50px;
+    padding: 3px;
+    margin: 2px;
+    border: 5px solid #1982c4;
+    border-radius: 7px;   
+    background-color: black ; 
+    color: white;
+  }
+  span.bars {
+    display: inline-block;
+    padding: 1px;    
+    color: #ffffff;
+    font-size: 2em;
+    font-weight:bold;
+    vertical-align: middle;
+  }
+  
+  .charactername {
+    display: inline-block;
+    width:70%;
+    margin-right: 10px;
+    font-size: 30px;
+    vertical-align: middle;
+    background-image: url(https://www.dropbox.com/s/lwaa3hh8y8nu2z1/cmsheetlogo.png);
+    }
+    
+  .content {
+    background: #EEEEEE;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  input.charactername {
+   border: 0;
+   background: none;
+   box-shadow: none;
+   border-radius: 0px;
+  }
+  
+  input.inventory {
+    display: inline-block;
+    width: 200px;
+  }
+  
+  input.inv0 {
+    display: inline-block;
+    background: #eee;
+  }
+  
+  input.inv1 {
+    display: inline-block;
+    background: #ddd;
+  }
+  
+  div.cbox {
+    display: inline-block;
+    padding: 4px;
+    margin: 0px;
+    border: 0px solid black;
+  }
+  
+  textarea.detail {
+      display:inline-block;
+      padding:15px 10px;
+      line-height:140%;
+  }
+  
+  .center{
+  justify-content: center;
+  }
+  
+   span.perk {
+    display: inline-block;
+    width: 110px;
+    color:#cccccc;
+  }
+  
+   span.perkmod {
+    display: inline-block;
+    width: 160px;
+    color:#cccccc;
+  }
+  
+   span.prof, input.prof {
+    background: #f5ebe0;
+    border-width: 0;
+    display: inline-block;
+    width: 100px;
+  }
+  
+   span.perk, input.perk {
+    background: #f5ebe0;
+    border-width: 0;
+    display: inline-block;
+    width: 100px;
+    margin: 0px 1px 3px 0px;
+  }
+   span.perkdesc, input.perkdesc {
+    background: #fff;
+    border-width: 0;
+    display: inline-block;
+    width: 40%;
+    margin: 0px 1px 3px 0px;
+  }
+  
+   span.perkeff, input.perkeff {
+    background: #d6ccc2;
+    border-width: 0;
+    display: inline-block;
+    width: 40%;
+    margin: 0px 1px 3px 0px;
+  }
+  
+  
+   span.skill, input.skill {
+    display: inline-block;
+    width: 75px;
+  }
+  
+   span.stattribute0 {
+    display: inline-block;
+    width: 80px;
+    background: #eeeeee;
+    font-weight:bold;
+  }
+  
+   span.stattribute1 {
+    display: inline-block;
+    width: 80px;
+    background: #dddddd;
+    font-weight:bold;
+    }
+    
+   span.stattribute2 {
+    display: inline-block;
+    width: 150px;
+    background: #eeeeee;
+    }
+    
+   span.stattribute3 {
+    display: inline-block;
+    width: 150px;
+    background: #dddddd;
+    }
+  
+   span.summary, input.summary {
+    display: inline-block;
+    background: #d6ccc2;
+    width: 200px;
+    padding: 1px 1px 1px 5px;
+    margin: 3px 3px 3px 0px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #999999;
+    border-radius: 7px 7px 0px 0px;
+    font-weight:bold;
+  }
+  
+  .money {
+    min-width: 150px;
+    background-color: #b5c99a;
+    }
+  
+   span.statsum, input.statsum {
+    display: inline-block;
+    width: 30px;
+    background: #d6ccc2;
+    border-style: solid;
+    border-color: #b3a393; /* old color #503718 */
+    border-radius: 0px 5px 5px 0px;
+    font-weight:bold;
+    vertical-align: middle;
+  }
+  
+   span.statmod, input.statmod {
+    display: inline-block;
+    width: 30px;
+  }
+  
+   span.statstr, input.statstr {
+    display: inline-block;
+    width: 35px;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid #b3a393;
+    border-radius:3px;
+    background:tomato; /* old color #DB3737 */
+    font-weight:bold;
+  }
+  
+   span.statper, input.statper {
+    display: inline-block;
+    width: 35px;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid #b3a393;
+    border-radius:3px;
+    background:mediumaquamarine; /* old color #ABD473 */
+    font-weight:bold;
+  }
+   span.statint, input.statint {
+    display: inline-block;
+    width: 35px;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid #dcdcd5;
+    border-radius:3px;
+    background:cornflowerblue; /* old color #66a7e7*/
+    font-weight:bold;
+  }
+   span.statchr, input.statchr {
+    display: inline-block;
+    width: 35px;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid #b3a393;
+    border-radius:3px;
+    background:orange; /* old color #FF7D0A */
+    font-weight:bold;
+  }
+  
+   span.statend, input.statend {
+    display: inline-block;
+    width: 35px;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid #b3a393;
+    border-radius:3px;
+    background:peru; /* old color #C79C6E */
+    font-weight:bold;
+  }
+   span.statdex, input.statdex {
+    display: inline-block;
+    width: 35px;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid #dcdcd5;
+    border-radius:3px;
+    background:yellow; /* old color #FFF569 */
+    font-weight:bold;
+  }
+  
+  span.short {
+    width: 3px;
+  }
+  
+  span.small {
+    font-size: 20px;
+    color: white;
+    margin: 2px;
+  }
+  
+  div.small {
+    display: inline-block;
+    color: black;
+    font-size: 15px;
+   }
+  
+  /* TESTING SMALL IDENTIFIERS FOR THE BASE SKILL STAT */
+  input.statstr, input.statper, input.statint, input.statchr, input.statend, input.statdex {
+    color: transparent;
+    width: 3px;
+    /* border: 0px; */
+    border-radius:3px 0px 0px 3px;
+  }
+  
+   span.baseskill {
+    display: inline-block;
+    width: 75px;
+    background: #EDEDE9;
+  }
+  
+  .col {
+      border: 2px solid #fff;
+      float:left; 
+      margin:5px; 
+      padding:3px;
+      vertical-align:top;
+      }
+  
+  .col30 {
+      border: 2px solid #fff;
+      float:left; 
+      margin:5px; 
+      padding:3px;
+      vertical-align:top;
+      width:30%;
+      }
+  
+  .col90 {
+      border: 2px solid #fff;
+      float:left; 
+      margin:5px; 
+      padding:3px;
+      vertical-align:top;
+      width:90%;
+      }
+      
+  .colnb{
+      border: 2px solid #FFF;
+      float:left; 
+      margin:15px;
+      }
+  
+  .lcol{
+    display: inline-block;
+    background: #000;
+    width: 200px;
+    padding: 1px 1px 1px 5px;
+    margin: -3px 0px 3px 0px;
+    border: 1px solid #D6CCC2;
+    border-radius: 7px 0px 0px 0px;
+    font-weight:bold;
+    color: #FFF;
+      }
+  
+  .mcol{
+    display: inline-block;
+    background: #000;
+    width: 40px;
+    padding: 1px 1px 1px 5px;
+    margin: 3px 3px 5px 3px;
+    border: 1px solid #D6CCC2;
+    border-radius: 0px 0px 0px 0px;
+    font-weight:bold;
+    color: #FFF;
+      }
+  
+    .invcol {
+      border: 0px solid #fff;
+      float:left; 
+      margin: 1px 1px 1px 1px; 
+      padding: 0px;
+      vertical-align:top;
+      }
+      
+  span.spacer{
+      display:inline-block; 
+      margin:25px 0px 0px 0px; 
+      }
+  
+  
+  
+  .radiodesc { display: none; }
+  
+  .ishide:checked ~ .hidedesc,
+  .isshow:checked ~ .showdesc
+  {
+      display: block;
+  }
+  
+  .sheet-character-sheet { display: none; }
+  
+  .isPC:checked ~ .sheet-pc,
+  .isNPC:checked ~ .sheet-npc
+  {
+      display: block;
+  }
+  
+  /*UNCOMMENT for visible DIV
+  div {
+    border: 1px solid #CCC;
+   }
+     */
+  
+  .left {
+    float: left;
+   }  
+  
+  .right {
+    float:right;
+   }  
+   
+  .clearboth {
+    clear:both;
+   }  
+  
+  .segment label {
+    color: #000;
+    display: inline-block;
+    background: #d6ccc2;
+    width: 100%;
+    padding: 3px 3px 3px 7px;
+    margin: 3px 3px 3px 0px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #999999;
+    border-radius: 7px 7px 0px 0px;
+    font-weight:bold;
+    font-size: 16px;
+    clear: left;
+    }
+    
+  
+  .btn-group .button {
+    background-color: #D6CCC2;
+    border: 2px solid #B3A393;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-group .button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+  .btn-group .button:hover {
+    background-color: #B3A393;
+  }
+  
+   .accordion > input[name="collapse"] {
+    display: none;
+  }
+  
+  .accordion .content {
+    background: transparent;
+    overflow: hidden;
+    height: 0;
+    transition: 0.5s;
+    box-shadow: 1px 2px 4px #EDEDE9;
+  }
+  
+  .accordion label {
+    color: #000;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 5px;
+    background: #E3D5CA;
+    
+  }
+  
+  .accordion label:hover,
+  .accordion label:focus {
+    background: #F5EBE0;
+  }
+   
+  .accordion .handle label:before {
+    font-family: system-ui;
+    content: "▼";
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 0.5em;
+    line-height: 1.556em;
+    vertical-align: middle;
+    transition: 0.4s;
+  }
+   
+  .accordion > input[name="collapse"]:checked ~ .handle label:before {
+      transform: rotate(180deg);
+      transform-origin: center;
+      transition: 0.4s;
+  }
+  
+  .accordion > input[name="collapse"]:checked ~ .content {
+    height: 420px;
+    transition: height 0.5s;
+  }
+  
+  textarea.textbox {
+      resize: none;
+      box-sizing: border-box;
+      height: 231px;
+  }
+  
+  sheet-textarea {
+    width: 90%;
+    height: 85%;
+    background-color: d5bdaf;
+    border-width: 0;
+  }
+  
+  #boxE, #boxD, #boxI, #boxS, #boxC, #boxP{
+      width:100;
+      height:100;
+      margin:10;
+      padding:10;
+  }
+  
+  #boxS {
+      background:#123;
+      border-radius:5;
+      
+  }
+  
+  #boxP {
+      background:#456;
+      border-radius:5;
+      
+  }
+  #boxI {
+      background:#789;
+      border-radius:5;
+      
+  }
+  
+      
+  

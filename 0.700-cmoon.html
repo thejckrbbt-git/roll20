@@ -1,0 +1,1114 @@
+<!-- ********************************************************* -->
+<!-- *----------------------------CHARACTER SHEET VERSION 7.00 -->
+<!-- *----------------------------------LATEST EDIT 03/02/2023 -->
+<!-- ********************************************************* -->
+<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="character"  />
+<div class="btn-group">
+	<button class="button" type="action" name="act_dashboard">
+	<img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-home-24.png" title="Home" alt="Home"></button>
+    <button class="button" type="action" name="act_character">
+	<img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-brainstorm-skill-24.png" title="Skills" alt="Skills"></button>
+	<button class="button" type="action" name="act_inventory">
+	<img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-t-shirt-24.png" title="Inventory" alt="Inventory"></button>	
+    <button class="button" type="action" name="act_journal">
+	<img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-logs-folder-24.png" title="Journal" alt="Journal"></button>
+    <button class="button" type="action" name="act_configuration">
+	<img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-settings-24.png" title="Config" alt="Config"></button>
+	<button class="button" type="action" name="act_recalc">
+	<img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-synchronize-24.png" title="Recalculate Sheet Values" alt="Recalculate Sheet Values"></button>
+</div>
+</div>
+
+
+
+<!-- ********************************************************* -->
+<!-- *-----------------------------------------CHARACTER SHEET -->
+<!-- ********************************************************* -->
+<section class="accordion">
+  <input type="checkbox" name="collapse" id="handle01" unchecked>
+  <h1 class="handle">
+    <label for="handle01">
+    <img name="attr_character_token" width="100"><input type="text" class="charactername" name="attr_character_name" />
+    </label>
+  </h1>
+  
+  <!--- CHARACTER DETAIL -->
+  <div class="content">
+  <div class="colnb">
+    <img name="attr_character_avatar" width="200">
+  </div>
+  <div class="colnb">
+  <span class="skill">Affiliation: </span>
+  <input class="prof" type="text" name="attr_affiliation"><br><br>
+  <span class="skill">Occupation: </span>
+  <input class="prof" type="text" name="attr_occupation">
+  </div>
+  
+  <div class="colnb">
+  <span class="skill">Group: </span>
+  <input class="prof" type="text" name="attr_group"><br><br>
+  <span class="skill">Rank: </span>
+  <input class="prof" type="text" name="attr_rank">
+  </div>
+  
+  <div class="col">
+  <b>CHARACTER DETAIL</b><br>
+  <textarea class="detail" name="attr_charDetail" value="attr_charDetail" cols="75%" rows="10"></textarea>
+  </div>
+
+  </div>
+  
+</section>
+
+
+<!-- ********************************************************* -->
+<!-- *------------------------------------------------HOME TAB -->
+<!-- ********************************************************* -->
+  <h3 class="segment">
+    <label>ATTRIBUTES</label>
+  </h3>
+ 
+ <!-- ATTRIBUTES CONTENT -->
+<div class="content">
+
+  <div class="col">
+ <span title="STRENGTH - Melee Damage, Encumbrance, STR Skills Base" class="statstr">
+  STR:</span>
+  <input type="number" name="attr_SUMSTR" value="0" >
+  
+<br>
+ <span title="PERCEPTION - Sensory Distance, Critical Rate, PER Skills base" class="statper">
+  PER:</span>
+  <input type="number" name="attr_SUMPER">
+   
+<br>
+ <span title="INTELLIGENCE - Number of Skills, XP Gain, INT Skills base" class="statint">
+  INT:</span>
+  <input type="number" name="attr_SUMINT" value="0" >
+  
+<br>
+ <span title="CHARISMA - Number of Perks, Rank, CHR Skills base" class="statchr">
+  CHR:</span>
+  <input type="number" name="attr_SUMCHR" value="0" >
+  
+<br>
+ <span title="ENDURANCE - Hit Points, Resist (Saving Throw), END Skills base " class="statend">
+  END:</span>
+  <input type="number" name="attr_SUMEND">
+    
+<br>
+ <span title="DEXTERITY - Movement Speed, Critical Damage, DEX Skills base " class="statdex">
+  DEX:</span>
+  <input type="number" name="attr_SUMDEX">
+  
+<!-- TRIBOX GREEN-BLUE-YELLOW LAYOUT -->
+  </div>
+  
+  <div class="col">
+  <span class="green" title="Health is the total amount of damage the character can sustain before they are Downed. Health, or Hit Points (HP) can be increased by raising the Endurance (END) attribute, equipping certain Armor types, or selecting a Health Perk">
+  Health<br>
+  <span class="bars" name="attr_hp"></span> | <span class="bars" name="attr_hp_max"></span>
+  </span>
+  
+  <span class="blue" title="Armor reduces the amount of Damage applied to the character before the Damage is subtracted from Health. Damage mitigation is dependant on the Armor type.">
+  Armor<br>
+  <span class="bars"name="attr_armor"></span>
+  </span>
+  
+  <span class="yellow" title="Speed is how many units the character can travel in one Action. The character can travel twice this distance turing their full Turn. Normally, one Map Unit represents a distance of 5 meters." >
+  Speed<br>
+  <span class="bars"name="attr_speed"></span>
+  
+  </div>
+  
+  <!--ATTRIBUTE SUMMARY COLUMN ONE -->
+   <div class="col">
+   <span class="summary"> Attributes Summary</span><br>
+
+   <span class="stattribute1">CRIT RATE: </span>
+   <span class="" name="attr_crit_rate"></span>%<br>
+   <span class="stattribute0">CRIT DMG: </span>
+   <span class="" name="attr_crit_dmg"></span>%<br>
+   <span class="stattribute1">HEALTH: </span>
+   <span class=""><span  name="attr_hp"></span>/<span name="attr_hp_max"></span></span><br>
+   <span class="stattribute0">SENSORY: </span>
+   <span class="" name="attr_sense"></span>m <br>
+   <span class="stattribute1">SPEED: </span>
+   <span class="" name="attr_speed"></span> (<span class="" name="attr_distance"></span>m)<br>
+   <span class="stattribute0">SKILLS #: </span>
+   <span class="" name="attr_SUMINT"></span> + Base 7<br>
+   <span class="stattribute1">PERKS #: </span>
+   <span class="" name="attr_base_chr"></span><br>
+   </div>
+   
+      <div class="col">
+
+	<span class="summary"> <img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-gun-24.png" title="Firearms">
+   Firearms: 
+   <mark><span name="attr_firearms">
+   </span></mark></span><br>
+   
+   <span class="stattribute2" title="Primary Weapon" name="attr_weap1"></span>
+   <b>DMG: </b>
+   <span name="attr_weap1dmg"></span> <b>ROF: </b> 
+   <span name="attr_weap1rof"></span><br>
+   
+   <span class="stattribute3" title="Secondary Weapon" name="attr_weap2"></span>
+   <b>DMG: </b>
+   <span name="attr_weap2dmg"></span> <b>ROF: </b> 
+   <span name="attr_weap2rof"></span><br>
+
+	<span class="summary"> <img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-knife-24.png" title="Melee">
+   Melee: 
+   <mark><span name="attr_melee">
+   </span></mark></span><br>
+
+   <span class="stattribute2" title="Melee Weapon" name="attr_weap3"></span>
+   <b>DMG: </b> 
+   <span name="attr_weap3dmg" title="Base Melee Damage"></span>/
+   <span name="attr_weap3strdmg" title="Melee Damage Plus Strength"></span><br>
+   
+   	<span class="summary"><img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-shield-24.png" title="Defense">
+    Defense:  
+   <mark><span name="attr_defense">
+   </span></mark>/30</span><br>
+
+   <span class="stattribute3" name="attr_armor1" title="body"></span>
+   <b>ARMOR: </b><span name="attr_armor1value"></span><b> AHP: </b>
+   <span name="attr_ahp"></span><br>
+   
+   <span class="stattribute2" name="attr_armor2" title="head"></span>
+   <b>ARMOR: </b><span name="attr_armor2value"></span><b> AHP: </b>
+   <span name="attr_ahp"></span><br>
+   
+   <span class="stattribute3" name="attr_armor3" title="shield"></span>
+   <b>ARMOR: </b><span name="attr_armor3value"></span><b> AHP: </b>
+   <span name="attr_ahp"></span><br>Weapon
+
+   
+   <br>
+   </div>
+  </div>
+ </section>
+ <div class="clearboth"></div>
+ 
+ 
+
+
+<!-- ********************************************************* -->
+<!-- *-------------------------------------------CHARACTER TAB -->
+<!-- ********************************************************* -->
+ <div class="sheet-character">
+
+  <h3 class="segment">
+    <label>
+    SKILLS
+    </label>
+  </h3>
+ 
+<!-- ********************************************************* -->
+<!-- *--------------------------------------------------SKILLS -->
+<!-- ********************************************************* -->
+
+<div class="clearboth"></div>
+<span class="summary"> Attribute Bonuses</span><br>
+<div class="center">
+  
+STR: <span class="statstr" type="text" name="attr_base_str" readonly></span>
+PER: <span class="statper" type="text" name="attr_base_per" readonly></span>
+INT: <span class="statint" type="text" name="attr_base_int" readonly></span>
+CHR: <span class="statchr" type="text" name="attr_base_chr" readonly></span>
+END: <span class="statend" type="text" name="attr_base_end" readonly></span>
+DEX: <span class="statdex" type="text" name="attr_base_dex" readonly></span>
+</div>
+
+<div class="segment"></div>
+<div class="clearboth"></div> 
+  
+	<div class="content">
+	<div class="col30">
+	<span class="summary"> Skill Name | Mod | Total</span>
+	<br>
+
+<input class="statdex short" type="text" name="attr_base_dex" readonly>
+<span class="baseskill">Agility</span>
+<input class="statmod" type="number" name="attr_mod_agility" value="0" >
+<input class="statsum" type="text" name="attr_agility" readonly>
+<button type='roll' name='roll_AgilityCheck' title='Agility Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Agility Skill=@{Agility}}} {{Roll Result=[[1d20+@{Agility}[ROLL+SKILL]+@{perkmod_Agility}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statper" type="text" name="attr_base_per" readonly>
+<span class="baseskill">Awareness</span>
+<input class="statmod" type="number" name="attr_mod_awareness" value="0" >
+<input class="statsum" type="text" name="attr_awareness" readonly>
+<button type="roll" name="roll_AwarenessCheck" title="Awareness Check" value="&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Awareness Skill=@{awareness}}} {{Roll Result=[[1d20+@{awareness}[ROLL+SKILL]+@{perkmod_awareness}[PERK]]]}}"></button>
+<br>
+
+
+<input class="statint" type="text" name="attr_base_int" readonly>
+<span class="skill">Biology</span>
+<input class="statmod" type="number" name="attr_mod_biology" value="0" >
+<input class="statsum" type="text" name="attr_biology" readonly>
+<button type='roll' name='roll_BiologyCheck' title='Biology Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Biology Skill=@{Biology}}} {{Roll Result=[[1d20+@{Biology}[ROLL+SKILL]+@{perkmod_Biology}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statstr" type="text" name="attr_base_str" readonly>
+<span class="baseskill">Brawling</span>
+<input class="statmod" type="number" name="attr_mod_brawling" value="0" >
+<input class="statsum" type="text" name="attr_brawling" readonly>
+<button type='roll' name='roll_BrawlingCheck' title='Brawling Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Brawling Skill=@{Brawling}}} {{Roll Result=[[1d20+@{Brawling}[ROLL+SKILL]+@{perkmod_Brawling}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statint" type="text" name="attr_base_int" readonly>
+<span class="skill">Chemistry</span>
+<input class="statmod" type="number" name="attr_mod_chemistry" value="0" >
+<input class="statsum" type="text" name="attr_chemistry" readonly>
+<button type='roll' name='roll_ChemistryCheck' title='Chemistry Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Chemistry Skill=@{Chemistry}}} {{Roll Result=[[1d20+@{Chemistry}[ROLL+SKILL]+@{perkmod_Chemistry}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statchr" type="text" name="attr_base_chr" readonly>
+<span class="skill">Command</span>
+<input class="statmod" type="number" name="attr_mod_command" value="0" >
+<input class="statsum" type="text" name="attr_command" readonly>
+<button type='roll' name='roll_CommandCheck' title='Command Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Command Skill=@{Command}}} {{Roll Result=[[1d20+@{Command}[ROLL+SKILL]+@{perkmod_Command}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statend" type="text" name="attr_base_end" readonly>
+<span class="skill">Conditioning</span>
+<input class="statmod" type="number" name="attr_mod_conditioning" value="0" >
+<input class="statsum" type="text" name="attr_conditioning" readonly>
+<button type='roll' name='roll_ConditioningCheck' title='Conditioning Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Conditioning Skill=@{Conditioning}}} {{Roll Result=[[1d20+@{Conditioning}[ROLL+SKILL]+@{perkmod_Conditioning}[PERK]]]}}'></button>
+<br>
+
+<input class="statint" type="text" name="attr_base_int" readonly>
+<span class="skill">Culture</span>
+<input class="statmod" type="number" name="attr_mod_culture" value="0" >
+<input class="statsum" type="text" name="attr_culture" readonly>
+<button type='roll' name='roll_CultureCheck' title='Culture Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Culture Skill=@{Culture}}} {{Roll Result=[[1d20+@{Culture}[ROLL+SKILL]+@{perkmod_Culture}[PERK]]]}}'></button>
+<br>
+
+<input class="statchr" type="text" name="attr_base_chr" readonly>
+<span class="skill">Deception</span>
+<input class="statmod" type="number" name="attr_mod_deception" value="0" >
+<input class="statsum" type="text" name="attr_deception" readonly>
+<button type='roll' name='roll_DeceptionCheck' title='Deception Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Deception Skill=@{Deception}}} {{Roll Result=[[1d20+@{Deception}[ROLL+SKILL]+@{perkmod_Deception}[PERK]]]}}'></button>
+<br>
+
+<input class="statint" type="text" name="attr_base_int" readonly>
+<span class="skill">Engineering</span>
+<input class="statmod" type="number" name="attr_mod_engineering" value="0" >
+<input class="statsum" type="text" name="attr_engineering" readonly>
+<button type='roll' name='roll_EngineeringCheck' title='Engineering Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Engineering Skill=@{Engineering}}} {{Roll Result=[[1d20+@{Engineering}[ROLL+SKILL]+@{perkmod_Engineering}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statstr" type="text" name="attr_base_str" readonly>
+<span class="skill">Fabrication</span>
+<input class="statmod" type="number" name="attr_mod_fabrication" value="0" >
+<input class="statsum" type="text" name="attr_fabrication" readonly>
+<button type='roll' name='roll_FabricationCheck' title='Fabrication Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Fabrication Skill=@{Fabrication}}} {{Roll Result=[[1d20+@{Fabrication}[ROLL+SKILL]+@{perkmod_Fabrication}[PERK]]]}}'></button>
+<br>
+
+<input class="statper" type="text" name="attr_base_per" readonly>
+<span class="baseskill">Firearms</span>
+<input class="statmod" type="number" name="attr_mod_firearms" value="0" >
+<input class="statsum" type="text" name="attr_firearms" readonly>
+<button type='roll' name='roll_FirearmsCheck' title='Firearms Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Firearms Skill=@{Firearms}}} {{Roll Result=[[1d20+@{Firearms}[ROLL+SKILL]+@{perkmod_Firearms}[PERK]]]}}'></button>
+<br>
+
+	</div>
+	<div class="col30">
+	<span class='spacer'></span><br>
+
+<input class="statint" type="text" name="attr_base_chr" readonly>
+<span class="skill">Investigation</span>
+<input class="statmod" type="number" name="attr_mod_investigation" value="0" >
+<input class="statsum" type="text" name="attr_investigation" readonly>
+<button type='roll' name='roll_InvestigationCheck' title='Investigation Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Investigation Skill=@{Investigation}}} {{Roll Result=[[1d20+@{Investigation}[ROLL+SKILL]+@{perkmod_Investigation}[PERK]]]}}'></button>
+<br>
+
+<input class="statstr" type="text" name="attr_base_str" readonly>
+<span class="skill">Mechanical</span>
+<input class="statmod" type="number" name="attr_mod_mechanical" value="0" >
+<input class="statsum" type="text" name="attr_mechanical" readonly>
+<button type='roll' name='roll_MechanicalCheck' title='Mechanical Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Mechanical Skill=@{Mechanical}}} {{Roll Result=[[1d20+@{Mechanical}[ROLL+SKILL]+@{perkmod_Mechanical}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statdex" type="text" name="attr_base_dex" readonly>
+<span class="skill">Medical</span>
+<input class="statmod" type="number" name="attr_mod_medical" value="0" >
+<input class="statsum" type="text" name="attr_medical" readonly>
+<button type='roll' name='roll_MedicalCheck' title='Medical Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Medical Skill=@{Medical}}} {{Roll Result=[[1d20+@{Medical}[ROLL+SKILL]+@{perkmod_Medical}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statstr" type="text" name="attr_base_str" readonly>
+<span class="baseskill">Melee</span>
+<input class="statmod" type="number" name="attr_mod_melee" value="0" >
+<input class="statsum" type="text" name="attr_melee" readonly>
+<button type='roll' name='roll_MeleeCheck' title='Melee Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Melee Skill=@{Melee}}} {{Roll Result=[[1d20+@{Melee}[ROLL+SKILL]+@{perkmod_Melee}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statdex" type="text" name="attr_base_per" readonly>
+<span class="skill">Navigation</span>
+<input class="statmod" type="number" name="attr_mod_navigation" value="0" >
+<input class="statsum" type="text" name="attr_navigation" readonly>
+<button type='roll' name='roll_NavigationCheck' title='Navigation Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Navigation Skill=@{Navigation}}} {{Roll Result=[[1d20+@{Navigation}[ROLL+SKILL]+@{perkmod_Navigation}[PERK]]]}}'></button>
+<br>
+
+<input class="statdex" type="text" name="attr_base_dex" readonly>
+<span class="skill">Operation</span>
+<input class="statmod" type="number" name="attr_mod_operation" value="0" >
+<input class="statsum" type="text" name="attr_operation" readonly>
+<button type='roll' name='roll_OperationCheck' title='Operation Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Operation Skill=@{Operation}}} {{Roll Result=[[1d20+@{Operation}[ROLL+SKILL]+@{perkmod_Operation}[PERK]]]}}'></button>
+<br>
+
+<input class="statchr" type="text" name="attr_base_chr" readonly>
+<span class="skill">Performance</span>
+<input class="statmod" type="number" name="attr_mod_performance" value="0" >
+<input class="statsum" type="text" name="attr_performance" readonly>
+<button type='roll' name='roll_PerformanceCheck' title='Performance Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Performance Skill=@{Performance}}} {{Roll Result=[[1d20+@{Performance}[ROLL+SKILL]+@{perkmod_Performance}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statchr" type="text" name="attr_base_chr" readonly>
+<span class="skill">Persuasion</span>
+<input class="statmod" type="number" name="attr_mod_persuasion" value="0" >
+<input class="statsum" type="text" name="attr_persuasion" readonly>
+<button type='roll' name='roll_PersuasionCheck' title='Persuasion Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Persuasion Skill=@{Persuasion}}} {{Roll Result=[[1d20+@{Persuasion}[ROLL+SKILL]+@{perkmod_Persuasion}[PERK]]]}}'></button>
+<br>
+
+<input class="statdex" type="text" name="attr_base_dex" readonly>
+<span class="skill">Pilot</span>
+<input class="statmod" type="number" name="attr_mod_pilot" value="0" >
+<input class="statsum" type="text" name="attr_pilot" readonly>
+<button type='roll' name='roll_PilotCheck' title='Pilot Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Pilot Skill=@{Pilot}}} {{Roll Result=[[1d20+@{Pilot}[ROLL+SKILL]+@{perkmod_Pilot}[PERK]]]}}'></button>
+<br>
+
+<input class="statper" type="text" name="attr_base_per" readonly>
+<span class="skill">Professional</span>
+<input class="statmod" type="number" name="attr_mod_professional" value="0" >
+<input class="statsum" type="text" name="attr_professional" readonly>
+<button type='roll' name='roll_ProfessionalCheck' title='Professional Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Professional Skill=@{Professional}}} {{Roll Result=[[1d20+@{Professional}[ROLL+SKILL]+@{perkmod_Professional}[PERK]]]}}'></button>
+<br>
+
+<input class="statper" type="text" name="attr_base_per" readonly>
+<span class="baseskill">React</span>
+<input class="statmod" type="number" name="attr_mod_react" value="0" >
+<input class="statsum" type="text" name="attr_react" readonly>
+<button type='roll' name='roll_ReactCheck' title='React Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{React Skill=@{React}}} {{Roll Result=[[1d20+@{React}[ROLL+SKILL]+@{perkmod_React}[PERK]]]}}'></button>
+<br>
+
+<input class="statend" type="text" name="attr_base_end" readonly>
+<span class="baseskill">Resist</span>
+<input class="statmod" type="number" name="attr_mod_resist" value="0" >
+<input class="statsum" type="text" name="attr_resist" readonly>
+<button type='roll' name='roll_ResistCheck' title='Resist Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Resist Skill=@{Resist}}} {{Roll Result=[[1d20+@{Resist}[ROLL+SKILL]+@{perkmod_Resist}[PERK]]]}}'></button>
+<br>
+
+	</div>
+	<div class="col30">
+	<span class='spacer'></span><br>
+
+
+<input class="statper" type="text" name="attr_base_per" readonly>
+<span class="skill">Scavenge</span>
+<input class="statmod" type="number" name="attr_mod_scavenge" value="0" >
+<input class="statsum" type="text" name="attr_scavenge" readonly>
+<button type='roll' name='roll_ScavengeCheck' title='Scavenge Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Scavenge Skill=@{Scavenge}}} {{Roll Result=[[1d20+@{Scavenge}[ROLL+SKILL]+@{perkmod_Scavenge}[PERK]]]}}'></button>
+<br>
+
+<input class="statint short" type="text" name="attr_base_int" readonly>
+<span class="skill">Scholar</span>
+<input class="statmod" type="number" name="attr_mod_scholar" value="0" >
+<input class="statsum" type="text" name="attr_scholar" readonly>
+<button type='roll' name='roll_ScholarCheck' title='Scholar Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Scholar Skill=@{Scholar}}} {{Roll Result=[[1d20+@{Scholar}[ROLL+SKILL]+@{perkmod_Scholar}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statdex" type="text" name="attr_base_dex" readonly>
+<span class="skill">Security</span>
+<input class="statmod" type="number" name="attr_mod_security" value="0" >
+<input class="statsum" type="text" name="attr_security" readonly>
+<button type='roll' name='roll_SecurityCheck' title='Security Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Security Skill=@{Security}}} {{Roll Result=[[1d20+@{Security}[ROLL+SKILL]+@{perkmod_Security}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statdex" type="text" name="attr_base_dex" readonly>
+<span class="skill">Stealth</span>
+<input class="statmod" type="number" name="attr_mod_stealth" value="0" >
+<input class="statsum" type="text" name="attr_stealth" readonly>
+<button type='roll' name='roll_StealthCheck' title='Stealth Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Stealth Skill=@{Stealth}}} {{Roll Result=[[1d20+@{Stealth}[ROLL+SKILL]+@{perkmod_Stealth}[PERK]]]}}'></button>
+<br>
+
+
+<input class="statend" type="text" name="attr_base_end" readonly>
+<span class="skill">Survival</span>
+<input class="statmod" type="number" name="attr_mod_survival" value="0" >
+<input class="statsum" type="text" name="attr_survival" readonly>
+<button type='roll' name='roll_SurvivalCheck' title='Survival Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Survival Skill=@{Survival}}} {{Roll Result=[[1d20+@{Survival}[ROLL+SKILL]+@{perkmod_Survival}[PERK]]]}}'></button>
+<br>
+
+<input class="statint" type="text" name="attr_base_int" readonly>
+<span class="skill">Technology</span>
+<input class="statmod" type="number" name="attr_mod_technology" value="0" >
+<input class="statsum" type="text" name="attr_technology" readonly>
+<button type='roll' name='roll_TechnologyCheck' title='Technology Check' value='&{template:custom} {{name=Skill Macro}} {{Character=@{character_name}}} {{Technology Skill=@{Technology}}} {{Roll Result=[[1d20+@{Technology}[ROLL+SKILL]+@{perkmod_Technology}[PERK]]]}}'></button>
+<br>
+
+<span class="summary" title='Proficiencies enhance Skills where specific conditions are met. The more specific condition, the higher the bonus. General Use: 1, Specific Use: 3, Unique Use: 5'> Proficiencies </span><br> <!-- ***Proficiency bonuses do not stack*** -->
+
+
+<input class='prof' type='text' name='attr_Prof01' value='None'> 
+<input type='number' name='attr_Prof01value' value='0'><br>
+
+<input class='prof' type='text' name='attr_Prof02' value='None'> 
+<input type='number' name='attr_Prof02value' value='0'> <br>
+
+<input class='prof' type='text' name='attr_Prof03' value='None'> 
+<input type='number' name='attr_Prof03value' value='0'> <br>
+
+<input class='prof' type='text' name='attr_Prof04' value='None'> 
+<input type='number' name='attr_Prof04value' value='0'> <br>
+
+<input class='prof' type='text' name='attr_Prof05' value='None'> 
+<input type='number' name='attr_Prof05value' value='0'> <br>
+
+		</div>
+	</div>
+
+<!-- ********************************************************* -->
+<!-- *---------------------------------------------------PERKS -->
+<!-- ********************************************************* -->
+	<div class="clearboth"></div> 
+	<div class="col90">
+<span class="summary" title='Number of Perks available to Character equals CHR Bonus'> Perk Name | Desc. | Effect </span>
+<br> 
+
+<input type="checkbox" name="attr_perkchk1" value="1"/>
+<input  class="perk" type="text" name="attr_perk1" value="Perk Name"/>
+<input class="perkdesc" type="text" name="attr_perk1desc" value="Perk 1 Description"/>
+<input class="perkeff" type="text" name="attr_perk1effect" value=" Effect manual/auto"/>
+<br>
+
+<input type="checkbox" name="attr_perkchk2" value="1"/>
+<input  class="perk" type="text" name="attr_perk2" value="Perk Name"/>
+<input class="perkdesc" type="text" name="attr_perk2desc" value="Perk 2 Description"/>
+<input class="perkeff" type="text" name="attr_perk2effect" value=" Effect manual/auto"/>
+<br>
+
+<input type="checkbox" name="attr_perkchk3" value="1"/>
+<input  class="perk" type="text" name="attr_perk3" value="Perk Name"/>
+<input class="perkdesc" type="text" name="attr_perk3desc" value="Perk 3 Description"/>
+<input class="perkeff" type="text" name="attr_perk3effect" value=" Effect manual/auto"/>
+<br>
+
+<input type="checkbox" name="attr_perkchk4" value="1"/>
+<input  class="perk" type="text" name="attr_perk4" value="Perk Name"/>
+<input class="perkdesc" type="text" name="attr_perk4desc" value="Perk 4 Description"/>
+<input class="perkeff" type="text" name="attr_perk4effect" value=" Effect manual/auto"/>
+<br>
+
+<input type="checkbox" name="attr_perkchk5" value="1"/>
+<input  class="perk" type="text" name="attr_perk5" value="Perk Name"/>
+<input class="perkdesc" type="text" name="attr_perk5desc" value="Perk 5 Description"/>
+<input class="perkeff" type="text" name="attr_perk5effect" value=" Effect manual/auto"/>
+<br>
+
+<input type="checkbox" name="attr_perkchk6" value="1"/>
+<input  class="perk" type="text" name="attr_perk6" value="Perk Name"/>
+<input class="perkdesc" type="text" name="attr_perk6desc" value="Perk 6 Description"/>
+<input class="perkeff" type="text" name="attr_perk6effect" value=" Effect manual/auto"/>
+<br>
+
+<input type="checkbox" name="attr_perkchk7" value="1"/>
+<input  class="perk" type="text" name="attr_perk7" value="Perk Name">
+<input class="perkdesc" type="text" name="attr_perk7desc" value="Perk 7 Description"/>
+<input class="perkeff" type="text" name="attr_perk7effect" value=" Effect manual/auto"/>
+<br>
+<br><br>
+
+    </div>
+  <div class="clearboth"></div>
+</section>
+
+	</div>	
+
+</div><!--TAB CHARCATER END-->
+
+<!-- ********************************************************* -->
+<!-- *-------------------------------------------INVENTORY TAB -->
+<!-- ********************************************************* -->
+
+<div class="sheet-inventory">
+  <h3 class="segment">
+    <label>
+    INVENTORY
+    </label>
+  </h3>
+
+   
+  <span class="summary"> Weapons </span>
+  <div class="clearboth"></div> 
+
+<!--INVENTORY COLUMNS WEAPON-->  
+ <div class="invcol" name="Weapon Name">
+  <div class="lcol">
+    <span title="Weapon Name">NAME</span>
+  </div>
+  <div><input class="inv0" type="text" title="Firearm" name="attr_weap1" placeholder="Primary Weapon" value=""></div>
+  <div><input class="inv1" type="text" title="Sidearm" name="attr_weap2" placeholder="Secondary Weapon" value=""></div>
+  <div><input class="inv0" type="text" title="Melee" name="attr_weap3" placeholder="Melee Weapon" value=""></div>
+  <div><input class="inv1" type="text" title="Alternate" name="attr_weap4" placeholder="Alternate Weapon" value=""></div>
+ </div>
+
+ <div class="invcol" name="Weapon Damage">
+  <div class="mcol">
+    <span title="Weapon Damage per Projectile">DMG</span>
+  </div>
+  <div><input class="inv0num" type="number" title="Weapon 1 DMG" name="attr_weap1dmg" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 2 DMG" name="attr_weap2dmg" value="0"></div>
+  <div><input class="inv0num" type="number" title="Weapon 3 DMG" name="attr_weap3dmg" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 4 DMG" name="attr_weap4dmg" value="0"></div>
+ </div>
+
+ <div class="invcol" name="Weapon ROF">
+  <div class="mcol">
+    <span title="Rate of Fire per Turn">ROF</span>
+  </div>
+  <div><input class="inv0num" type="number" title="Weapon 1 ROF" name="attr_weap1rof" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 2 ROF" name="attr_weap2rof" value="0"></div>
+  <div><input class="inv0num" type="number" title="Weapon 3 ROF" name="attr_weap3rof" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 4 ROF" name="attr_weap4rof" value="0"></div>
+ </div>
+
+ <div class="invcol" name="Weapon Range">
+  <div class="mcol">
+    <span title="Range in Map Units">RNG</span>
+  </div>
+  <div><input class="inv0num" type="number" title="Weapon 1 range" name="attr_weap1range" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 2 range" name="attr_weap2range" value="0"></div>
+  <div><input class="inv0num" type="number" title="Weapon 3 range" name="attr_weap3range" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 4 range" name="attr_weap4range" value="0"></div>
+ </div>
+
+ <div class="invcol" name="Weapon Mag Capacity">
+  <div class="mcol">
+    <span title="Magazine Capacity">MAG</span>
+  </div>
+  <div><input class="inv0num" type="number" title="Weapon 1 magazine capacity" name="attr_weap1mag" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 2 magazine capacity" name="attr_weap2mag" value="0"></div>
+  <div><input class="inv0num" type="number" title="Weapon 3 magazine capacity" name="attr_weap3mag" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 4 magazine capacity" name="attr_weap4mag" value="0"></div>
+ </div>
+
+ <div class="invcol" name="Weapon AOE">
+  <div class="mcol">
+    <span title="Area of Effect">AOE</span>
+  </div>
+  <div><input class="inv0num" type="number" title="Weapon 1 aoe" name="attr_weap1aoe" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 2 aoe" name="attr_weap2aoe" value="0"></div>
+  <div><input class="inv0num" type="number" title="Weapon 3 aoe" name="attr_weap3aoe" value="0"></div>
+  <div><input class="inv1num" type="number" title="Weapon 4 aoe" name="attr_weap4aoe" value="0"></div>
+ </div>
+
+<div class="invcol" name="Weapon Speed Penalty">
+  <div class="mcol">
+    <span title="Speed Penalty 0 | 1 | 2">SPD</span>
+ </div><br>
+  <div class="cbox">
+  <input type="radio" title="Weapon 1 speed penalty 0" name="attr_spdmod1" value="0" checked>
+  <input type="radio" title="Weapon 1 speed penalty 1" name="attr_spdmod1" value="1">
+  <input type="radio" title="Weapon 1 speed penalty 2" name="attr_spdmod1" value="2">
+  </div><br/>
+  <div class="cbox">
+  <input type="radio" title="Weapon 2 speed penalty 0" name="attr_spdmod2" value="0" checked>
+  <input type="radio" title="Weapon 2 speed penalty 1" name="attr_spdmod2" value="1">
+  <input type="radio" title="Weapon 2 speed penalty 2" name="attr_spdmod2" value="2">
+  </div><br/>
+  <div class="cbox">
+  <input type="radio" title="Weapon 3 speed penalty 0" name="attr_spdmod3" value="0" checked>
+  <input type="radio" title="Weapon 3 speed penalty 1" name="attr_spdmod3" value="1">
+  <input type="radio" title="Weapon 3 speed penalty 2" name="attr_spdmod3" value="2">
+  </div><br/>
+  <div class="cbox">
+  <input type="radio" title="Weapon 4 speed penalty 0" name="attr_spdmod4" value="0" checked>
+  <input type="radio" title="Weapon 4 speed penalty 1" name="attr_spdmod4" value="1">
+  <input type="radio" title="Weapon 4 speed penalty 2" name="attr_spdmod4" value="2">
+  </div><br/>
+ </div>
+
+
+ <div class="invcol" name="Weapon Reload Penalty">
+  <div class="mcol">
+    <span title="Reload Penalty +1">RLD</span>
+  </div><br>
+  <div class="cbox"><input type="checkbox" title="Weapon 1 reload penalty" name="attr_weap1reload" value="2"></div><br/>
+  <div class="cbox"><input type="checkbox" title="Weapon 2 reload penalty" name="attr_weap2reload" value="2"></div><br/>
+  <div class="cbox"><input type="checkbox" title="Weapon 3 reload penalty" name="attr_weap3reload" value="2"></div><br/>
+  <div class="cbox"><input type="checkbox" title="Weapon 4 reload penalty" name="attr_weap4reload" value="2"></div><br/>
+ </div>
+
+ <div class="clearboth"></div> 
+ <span class="summary"> Armor </span>
+ <div class="clearboth"></div> 
+
+<!--INVENTORY COLUMNS ARMOR-->  
+<div class="invcol" name="Armor Name">
+ <div class="lcol">
+    <span title="Armor Name">NAME</span>
+  </div>
+  <div><input class="inv0" type="text" title="Armor Core" name="attr_armor1" placeholder="Armor Core" value=""></div>
+  <div><input class="inv1" type="text" title="Armor Helmet" name="attr_armor2" placeholder="Armor Helmet" value=""></div>
+  <div><input class="inv0" type="text" title="Armor Hyperskin" name="attr_armor3" placeholder="Armor Hyperskin" value=""></div>
+  <div><input class="inv1" type="text" title="Armor Alternate" name="attr_armor4" placeholder="Armor Alternate" value=""></div>
+  </div>
+
+<div class="invcol" name="Armor Value">
+ <div class="mcol">
+    <span title="Armor Value">ARM</span>
+  </div>
+  <div><input class="inv0num" type="number" title="Armor 1 Value" name="attr_armor1value" value="0"></div>
+  <div><input class="inv1num" type="number" title="Armor 2 Value" name="attr_armor2value" value="0"></div>
+  <div><input class="inv0num" type="number" title="Armor 3 Value" name="attr_armor3value" value="0"></div>
+  <div><input class="inv1num" type="number" title="Armor 4 Value" name="attr_armor4value" value="0"></div>
+ </div>
+
+<div class="invcol" name="Armor Defense">
+ <div class="mcol">
+    <span title="Defense Value">DEF</span>
+  </div>
+  <div><input class="inv0num" type="number" title="Armor 1 Defense" name="attr_armor1def" value="0"></div>
+  <div><input class="inv1num" type="number" title="Armor 2 Defense" name="attr_armor2def" value="0"></div>
+  <div><input class="inv0num" type="number" title="Armor 3 Defense" name="attr_armor3def" value="0"></div>
+  <div><input class="inv1num" type="number" title="Armor 4 Defense" name="attr_armor4def" value="0"></div>
+ </div>
+
+<div class="invcol" name="Armor Defense">
+ <div class="mcol">
+    <span title="Bonus Hit Points">BHP</span>
+  </div>
+  <div><input class="inv0num" type="number" title="Armor 1 Bonus Hit Points" name="attr_armor1bhp" value="0"></div>
+  <div><input class="inv1num" type="number" title="Armor 2 Bonus Hit Points" name="attr_armor2bhp" value="0"></div>
+  <div><input class="inv0num" type="number" title="Armor 3 Bonus Hit Points" name="attr_armor3bhp" value="0"></div>
+  <div><input class="inv1num" type="number" title="Armor 4 Bonus Hit Points" name="attr_armor4bhp" value="0"></div>
+ </div>
+
+ <div class="invcol" name="Armor Speed Penalty">
+  <div class="mcol">
+    <span title="Speed Penalty 0 | 1 | 2">SPD</span>
+  </div><br>
+  <div class="cbox">
+    <input type="radio" title="Armor 1 speed penalty 0" name="attr_spdmod5" value="0" checked>
+    <input type="radio" title="Armor 1 speed penalty 1" name="attr_spdmod5" value="1">
+    <input type="radio" title="Armor 1 speed penalty 2" name="attr_spdmod5" value="2">
+    </div><br/>
+    <div class="cbox">
+    <input type="radio" title="Armor 2 speed penalty 0" name="attr_spdmod6" value="0" checked>
+    <input type="radio" title="Armor 2 speed penalty 1" name="attr_spdmod6" value="1">
+    <input type="radio" title="Armor 2 speed penalty 2" name="attr_spdmod6" value="2">
+    </div><br/>
+    <div class="cbox">
+    <input type="radio" title="Armor 3 speed penalty 0" name="attr_spdmod7" value="0" checked>
+    <input type="radio" title="Armor 3 speed penalty 1" name="attr_spdmod7" value="1">
+    <input type="radio" title="Armor 3 speed penalty 2" name="attr_spdmod7" value="2">
+    </div><br/>
+    <div class="cbox">
+    <input type="radio" title="Armor 4 speed penalty 0" name="attr_spdmod8" value="0" checked>
+    <input type="radio" title="Armor 4 speed penalty 1" name="attr_spdmod8" value="1">
+    <input type="radio" title="Armor 4 speed penalty 2" name="attr_spdmod8" value="2">
+    </div><br/>
+ </div>
+
+ 
+ 
+
+<br><br>
+<!--END OF WEAPON AND ARMOR INVETORY-->
+
+
+	<div class="clearboth"></div> 
+	<div class="content">
+	<div class="col30">
+	<span class="summary"> Carried Inventory</span>
+	<br>
+  <textarea type="text" name="attr_inventory1"  placeholder="Put information here about items the character is currently carrying " cols="30" rows="5"></textarea>
+  </div>
+  
+  	<div class="col30">
+	<span class="summary"> Options</span>
+	<br>
+  <textarea type="text" name="attr_inventory2"  placeholder="Put information here about the character's installed options" cols="30" rows="5"></textarea>
+  </div>
+  
+  	<div class="col30">
+	<span class="summary"> Stored Inventory/Vehicles</span>
+	<br>
+  <textarea type="text" name="attr_inventory3" placeholder="Put information here about stored items and vehicles" cols="30" rows="5"></textarea><br>
+  </div>
+  
+  <div class="clearboth"></div>
+        <div class="col">
+
+	<span class="summary"> <img src="https://raw.githubusercontent.com/aesolarch-test/roll20/main/icons8-dollar-24.png" title="Currencies">
+   Currencies: 
+   </span><br>
+   
+   <span class="stattribute2" title="Universal Credit Currency">Credits</span>
+   <input class="money" type="number" name="attr_money1" value="0" ><br>
+   
+   <span class="stattribute3" title="Secured Accounts">Accounts</span>
+   <input class="money" type="number" name="attr_money2" value="0" ><br>
+   
+   <span class="stattribute2" title="Floating Point Currency">FPC</span>
+   <input class="money" type="number" name="attr_money3" value="0" ><br>
+   
+   <span class="stattribute3" title="Other Accounts or Currency">Other</span>
+   <input class="money" type="number" name="attr_money4" value="0" ><br>
+	
+ 
+  
+  </div>
+</div>
+
+ </div> <!--TAB INVENTORY END-->
+
+
+<!-- ********************************************************* -->
+<!-- *---------------------------------------------JOURNAL TAB -->
+<!-- ********************************************************* -->
+
+<div class="sheet-journal">
+  <h3 class="segment">
+    <label>
+    JOURNAL
+    </label>
+  </h3>
+  	<div class="content">
+	<div class="col30">
+	<span class="summary"> Character Notes</span>
+	<br>
+  <textarea type="text" name="attr_journal1" placeholder="Put information here about the character" cols="30" rows="5"></textarea>
+  </div>
+  
+  	<div class="col30">
+	<span class="summary"> Mission Notes</span>
+	<br>
+  <textarea type="text" name="attr_journal2" placeholder="Put information here about the character's missions" cols="30" rows="5"></textarea>
+  </div>
+  
+  	<div class="col30">
+	<span class="summary"> NPC Notes</span>
+	<br>
+  <textarea type="text" name="attr_journal3" placeholder="Put information here about the people the character has met" cols="30" rows="5"></textarea>
+  </div>
+  
+  </div>
+  
+</div>
+  
+
+<!-- ********************************************************* -->
+<!-- *---------------------------------------CONFIGURATION TAB -->
+<!-- ********************************************************* -->
+
+<div class="sheet-configuration">
+  <h3 class="segment">
+    <label>
+    CONFIGURATION
+    </label>
+  </h3> 
+
+	<div class="col">
+<span class="summary">Multipliers</span>
+<span class='perk'>Credit Mult: </span><input type="number" name="attr_credMult" value="1"><br>
+<span class='perk'>Defense Mult: </span><input type="number" name="attr_defMult" value="0" ><br>
+<span class='perk'>Heal Mult: </span><input type="number" name="attr_healMult" value="1"><br>
+<span class='perk'>Hitpoints Mult: </span><input type="number" name="attr_hpMult" value="10" ><br>
+<span class='perk'>Init Mult: </span><input type="number" name="attr_initMult" value="1"><br>
+<span class='perk'>Load Mult: </span><input type="number" name="attr_loadMult" value="1"><br>
+<span class='perk'>Repair Mult: </span><input type="number" name="attr_repMult" value="1"><br>
+<span class='perk'>Sense Mult: </span><input type="number" name="attr_senseMult" value="2.5" ><br>
+<span class='perk'>Size Mult: </span><input type="number" name="attr_sizeMult" value="1"><br>
+<span class='perk'>Speed Mult: </span><input type="number" name="attr_spdMult" value="2" ><br>
+<span class='perk'>Stealth Spd Mult: </span><input type="number" name="attr_stspdMult" value="2" ><br>
+<span class='perk'>XP Mult: </span><input type="number" name="attr_xpMult" value="1"><br>
+<span class='perk'>Defense Base: </span><input type="number" name="attr_defBase" value="10"><br>
+<span class='perk'>Perk> First Blood</span>
+<input type="hidden" name="attr_perkFirstblood" value="0" />
+<input type="checkbox" name="attr_perkFirstblood" value="1" /><br>
+<span class='perk'>Perk> Prowl: </span>
+ <input checked="checked" class="radiobox reset" type="radio" name="attr_perkProwl" value="2">
+  <input class="radiobox" type="radio" name="attr_perkProwl" value="1">
+<span class="" type="text" name="attr_perkProwl"></span><br>
+	</div>
+	
+	<div class="col">
+<span class="summary">Skill Modifiers </span>
+<span class='perkmod'>Agility Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Agility' value='0' ><br>
+<span class='perkmod'>Awareness Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Awareness' value='0' ><br>
+<span class='perkmod'>Biology Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Biology' value='0' ><br>
+<span class='perkmod'>Brawling Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Brawling' value='0' ><br>
+<span class='perkmod'>Chemistry Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Chemistry' value='0' ><br>
+<span class='perkmod'>Command Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Command' value='0' ><br>
+<span class='perkmod'>Conditioning Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Conditioning' value='0' ><br>
+<span class='perkmod'>Culture Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Culture' value='0' ><br>
+<span class='perkmod'>Deception Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Deception' value='0' ><br>
+<span class='perkmod'>Defend Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Defend' value='0' ><br>
+<span class='perkmod'>Engineering Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Engineering' value='0' ><br>
+<span class='perkmod'>Fabrication Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Fabrication' value='0' ><br>
+<span class='perkmod'>Firearms Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Firearms' value='0' ><br>
+<span class='perkmod'>Investigation Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Investigation' value='0' ><br>
+<span class='perkmod'>Mechanical Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Mechanical' value='0' ><br>
+	</div>
+	
+	<div class="col">
+<span class='perkmod'>Medical Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Medical' value='0' ><br>
+<span class='perkmod'>Melee Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Melee' value='0' ><br>
+<span class='perkmod'>Navigation Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Navigation' value='0' ><br>
+<span class='perkmod'>Operation Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Operation' value='0' ><br>
+<span class='perkmod'>Performance Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Performance' value='0' ><br>
+<span class='perkmod'>Persuasion Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Persuasion' value='0' ><br>
+<span class='perkmod'>Pilot Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Pilot' value='0' ><br>
+<span class='perkmod'>Professional Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Professional' value='0' ><br>
+<span class='perkmod'>React Perk Modifier: </span>
+<input type='number' name='attr_perkmod_React' value='0' ><br>
+<span class='perkmod'>Resist Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Resist' value='0' ><br>
+<span class='perkmod'>Scavenge Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Scavenge' value='0' ><br>
+<span class='perkmod'>Scholar Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Scholar' value='0' ><br>
+<span class='perkmod'>Security Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Security' value='0' ><br>
+<span class='perkmod'>Stealth Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Stealth' value='0' ><br>
+<span class='perkmod'>Survival Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Survival' value='0' ><br>
+<span class='perkmod'>Technology Perk Modifier: </span>
+<input type='number' name='attr_perkmod_Technology' value='0' ><br>
+	</div>
+</div> <!--TAB CONFIGURATION END-->
+
+
+<!-- ********************************************************* -->
+<!-- *------------------------------------------ROLL TEMPLATES -->
+<!-- ********************************************************* -->
+
+<!-- SET ROLL TEMPLATE -->
+<rolltemplate class="sheet-rolltemplate-custom">
+  <div class="sheet-container">
+    <div class="sheet-header">{{name}}</div>
+      {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+      {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+	  <div class="roll-row">{{roll1}}</div>
+    </div>
+    <div class="sheet-content">
+      {{#allprops() title subtitle desc color}}
+      <div class="sheet-key">{{key}}</div>
+      <div class="sheet-value">{{value}}</div>	 
+      {{/allprops() title subtitle desc color}}
+      {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+    </div>
+	<div>{{allProps()}}</div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-cmoon">
+    <div class="sheet-template-container">
+	<div class="sheet-template-header">{{rollname}}</div>
+	{{#attack}}<div class="sheet-template-row">Attack: {{attack}} {{attackadvantage}} vs AC</div>{{/attack}}
+        {{#damage}}
+	<div class="sheet-template-row"><span>Damage: </span>{{damage}} 
+        <span>Crit: </span>{{dmgcrit}}</div>
+	<div class="sheet-template-row"><span>Type: </span>{{dmgtype}}</div>
+       {{/damage}}
+       {{#atteffect}}
+	 <div class="sheet-template-row">
+	 <span class="sheet-template-desc">Effect: </span>{{atteffect}}
+         </div>
+       {{/atteffect}}
+	</div>   
+</rolltemplate>
+
+
+<!-- ********************************************************* -->
+<!-- *-------------------------------------------SHEET WORKERS -->
+<!-- ********************************************************* -->
+
+<script type="text/worker">
+// SCRIPT FOR TABS
+    const buttonlist = ["dashboard","character","inventory","journal","configuration"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+</script>
+
+<script type="text/worker">
+
+//PERKS AND ATTRIBUTES
+on("clicked:recalc sheet:opened", function() {
+   
+	getAttrs(['SUMSTR','SUMPER','SUMINT','SUMCHR','SUMEND','SUMDEX','hpMult','spdMult','senseMult','perkProwl','weap3dmg'], function(values) {
+            
+		let SUMEND = parseInt(values.SUMEND)||0;
+		let hpMult = parseInt(values.hpMult)||0;
+        let lethpmax = SUMEND * hpMult;
+		let SUMDEX = parseInt(values.SUMDEX)||0;
+		let spdMult = parseInt(values.spdMult)||0;
+		let letspeed = SUMDEX / spdMult;
+		let letstspeed = (SUMDEX / spdMult)/(values.perkProwl);
+		let SUMPER = parseInt(values.SUMPER)||0;
+		let senseMult = parseFloat(values.senseMult)||0;
+		let letsense = SUMPER * senseMult;
+		let letdistance = (SUMDEX / spdMult)*5;
+		let letstdistance = letdistance/(values.perkProwl);
+		let letw3sd = SUMSTR+(values.wep3dmg);
+		
+	setAttrs({                            
+			hp_max: lethpmax,
+			sense: letsense,
+			speed: letspeed,
+			distance: letdistance,
+			stspeed: letstspeed,
+			stdistance: letstdistance,
+			weap3strdmg: letws3d
+			
+		});
+	});
+});
+
+// RECALC BUTTON TO SET SPICED STAT SKILL BASE 
+on("clicked:recalc sheet:opened", function() {	
+	getAttrs(['SUMSTR','SUMPER','SUMINT','SUMCHR','SUMEND','SUMDEX'], function(stat) {
+            
+		let SUMSTR = parseInt(stat.SUMSTR)||0;
+		let xbase_str = Math.floor(SUMSTR/2.857)||0;
+		var SUMPER = parseInt(stat.SUMPER)||0;
+		var xbase_per = Math.floor(SUMPER/2.857)||0;
+		var SUMINT = parseInt(stat.SUMINT)||0;
+		var xbase_int = Math.floor(SUMINT/2.857)||0;
+		var SUMCHR = parseInt(stat.SUMCHR)||0;
+		var base_chr = Math.floor(SUMCHR/2.857)||0;
+		var SUMEND = parseInt(stat.SUMEND)||0;
+		var base_end = Math.floor(SUMEND/2.857)||0;
+		var SUMDEX = parseInt(stat.SUMDEX)||0;
+		var base_dex = Math.floor(SUMDEX/2.857)||0;
+		var crit_rate = Math.max((SUMDEX-10)*3,5)||0;
+		var crit_dmg = Math.max(((SUMPER-10)*10)+100,110)||0;
+    var crit_mult = Math.max(((SUMPER-10)/10)+1, 1.1)||0;
+	setAttrs({   
+			base_str: xbase_str,
+			base_per: xbase_per,
+			base_int: xbase_int,
+			base_chr: base_chr,
+			base_end: base_end ,
+			base_dex: base_dex,
+			crit_rate: crit_rate,
+			crit_dmg: crit_dmg,
+      crit_mult: crit_mult
+			
+		});
+	});
+})
+		
+// CONSOLE (F12) PRINT WHEN RECALC IS USED
+on("clicked:recalc", function() {
+  console.log("RECALULATING CHARACTER SHEET");
+});
+
+</script>
+
+<script type="text/worker">
+//GENERATE ATTACK AND DEFENSE NUMBERS
+on("clicked:recalc sheet:opened", function() {
+ getAttrs([,'armor1value','armor2value','armor3value','armor1hp','armor2hp','armor3hp','armor1def','armor2def','armor3def','armor1speed'], function(val) {
+ 
+	    let a1v = parseInt(val.armor1value)||0;
+		let a2v = parseInt(val.armor2value)||0;
+		let a3v = parseInt(val.armor3value)||0;
+		let armor = a1v+a2v+a3v;
+	
+      setAttrs({
+            armor: armor,
+			armor0: parseInt(val.armor1value) + (val.armor2value),
+		
+      });
+   });
+});
+</script>
+
+<script type="text/worker">
+// GENERATE SKILL BASE NUMBERS
+on("clicked:recalc sheet:opened", function() {
+ getAttrs(['base_str','base_per','base_int','base_chr','base_end','base_dex','mod_command', 'mod_deception', 'mod_performance', 'mod_persuasion', 'mod_investigation', 'mod_agility', 'mod_medical', 'mod_operation', 'mod_pilot', 'mod_security', 'mod_stealth', 'mod_conditioning', 'mod_defend', 'mod_resist', 'mod_survival', 'mod_scholar', 'mod_biology', 'mod_chemistry', 'mod_engineering', 'mod_culture', 'mod_technology', 'mod_awareness', 'mod_firearms', 'mod_professional', 'mod_react', 'mod_navigation', 'mod_scavenge', 'mod_brawling', 'mod_fabrication', 'mod_mechanical', 'mod_melee'], function(val) {
+	
+      setAttrs({
+            command: parseInt(val.mod_command) + (val.base_chr),
+			deception: parseInt(val.mod_deception) + (val.base_chr),
+			performance: parseInt(val.mod_performance) + (val.base_chr),
+			persuasion: parseInt(val.mod_persuasion) + (val.base_chr),
+			investigation: parseInt(val.mod_investigation) + (val.base_chr),
+			agility: parseInt(val.mod_agility) + (val.base_dex),
+			medical: parseInt(val.mod_medical) + (val.base_dex),
+			operation: parseInt(val.mod_operation) + (val.base_dex),
+			pilot: parseInt(val.mod_pilot) + (val.base_dex),
+			security: parseInt(val.mod_security) + (val.base_dex),
+			stealth: parseInt(val.mod_stealth) + (val.base_dex),
+			conditioning: parseInt(val.mod_conditioning) + (val.base_end),
+			defend: parseInt(val.mod_defend) + (val.base_end),
+			resist: parseInt(val.mod_resist) + (val.base_end),
+			survival: parseInt(val.mod_survival) + (val.base_end),
+			scholar: parseInt(val.mod_scholar) + (val.base_int),
+			biology: parseInt(val.mod_biology) + (val.base_int),
+			chemistry: parseInt(val.mod_chemistry) + (val.base_int),
+			engineering: parseInt(val.mod_engineering) + (val.base_int),
+			culture: parseInt(val.mod_culture) + (val.base_int),
+			technology: parseInt(val.mod_technology) + (val.base_int),
+			awareness: parseInt(val.mod_awareness) + (val.base_per),
+			firearms: parseInt(val.mod_firearms) + (val.base_per),
+			professional: parseInt(val.mod_professional) + (val.base_per),
+			react: parseInt(val.mod_react) + (val.base_per),
+			navigation: parseInt(val.mod_navigation) + (val.base_per),
+			scavenge: parseInt(val.mod_scavenge) + (val.base_per),
+			brawling: parseInt(val.mod_brawling) + (val.base_str),
+			fabrication: parseInt(val.mod_fabrication) + (val.base_str),
+			mechanical: parseInt(val.mod_mechanical) + (val.base_str),
+			melee: parseInt(val.mod_melee) + (val.base_str),
+      });
+   });
+});
+</script>
