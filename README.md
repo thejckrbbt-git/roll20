@@ -10,6 +10,6 @@ VERSION|CHANGES
 0.700|Moved to github
 
 ## TASKS ##
-[ ] Item Tables
-[ ] Improve Perk Layout
-[ ] Perk Tables
+- [ ] Item Tables
+- [ ] Improve Perk Layout
+- [ ] Perk Tables
