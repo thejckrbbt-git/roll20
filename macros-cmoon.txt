@@ -1,0 +1,45 @@
+
+#MELCHIZEDEK LPR ATTACK
+!power {{
+--format|vehicle
+--name|MELCHIZEDEK
+--leftsub| @{selected|character_name}
+--rightsub|LPR
+
+    ~~~
+--!Desc| **@{selected|token_name}** calls on the **MELCHIZEDEK** to fire its *Light Pipe Rifle* at **@{target|token_name}**.
+--SKILL| [[1d20+3]] vs **@{target|defense}** (@{target|token_name}'s Defense)
+--DAMAGE|~L [[1d200+200]]~L
+}}
+
+
+#OPERATION: BORZOI
+!power {{
+--format|vehicle
+--name|BORZOI
+--leftsub| @{selected|character_name}
+--rightsub|Zhukov Borzoi Slip Cycle
+~~~
+?{Current Vehicle Speed (1-9)|1}
+
+--!^1ACTION| **@{selected|token_name}** calls on the **MELCHIZEDEK** to fire its **PIPE RIFLE** at **@{target|token_name}**.
+--!^1DETAILS| • DMG: 1d200+200
+^^ • 44m Cobalt Alloy Slug
+^^ • Area of effect is 1 unit (5m) 
+^^ • Range 170 units (850m) 
+^^ •  **PIERCE**s targets & armor
+~~~
+--SKILL:| [[1d20+3]] vs **@{target|defense}** (@{target|token_name}'s Defense)
+^^ **DMG:** [[1d200+200]]
+}}
+
+
+#EXAMPLE ROLL.QUERY SUCCESS
+!power {{
+--format|vehicle
+--name|OXEN
+
+--hroll| [[ [$Turn] 1d20 + ?{speed}  ]] [[ [$SkOps] 1d20 + @{Adney Roberts|Ops} ]]
+--Result| Oxen turn [! [^SkOps.total] !] vs. [! [^Turn.total] !]
+--!None| [[1d20+[^Turn.total] ]]
+}}
