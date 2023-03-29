@@ -13,3 +13,5 @@ VERSION|CHANGES
 - [ ] Item Tables
 - [ ] Improve Perk Layout
 - [ ] Perk Tables
+- [ ] Fix Defense Calc
+- [ ] Fix Ops Skill Bonus
