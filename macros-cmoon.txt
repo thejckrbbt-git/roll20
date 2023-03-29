@@ -33,6 +33,21 @@
 ^^ **DMG:** [[1d200+200]]
 }}
 
+#VEHICLE SPEED QUERY
+!power {{
+--format|vehicle
+--name|BORZOI
+--leftsub|Zhukov Borzoi Slip Cycle
+
+--hroll| [[ [$Turn] 1d20 + ?{speed}  ]] [[ [$SkOps] 1d20 + @{Adney Roberts|Ops} ]] [[ [$DMG] 2d50 ]]
+
+--!^1Desc| The **BORZOI** makes a maneuver, skidding across the surface of the road with **DRIVER** at the wheel
+
+--!Operation:| **Driver Roll [! [^SkOps.total] !] vs. [! [^Turn.total] !] Difficulty**
+
+--?? $SkOps.total >= $Turn.total ?? !^1Success| **DRIVER** navigates the obstacle safely!
+--?? $SkOps.total < $Turn.total ?? !^1Failure| **DRIVER** Oversteers and crashes into the obstacle, causing **[^DMG]** damage to the **BORZOI**!
+}}
 
 #EXAMPLE ROLL.QUERY SUCCESS
 !power {{
