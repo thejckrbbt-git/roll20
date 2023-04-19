@@ -21,7 +21,7 @@
       overflow: hidden; /* hides overflow that is caused by the span */
       position: relative; /* Allows the input's absolute positioning to be relative to this parent div */
       min-width: 50px; /* Whatever feels good to you, prevents a new span from collapsing to 0. */
-      width: fit-content /* Will fit the width to the contents without going outside itself or collapsing smaller than its content, though we will be using min-width in the case where there's no content. */
+      width: fit-content; /* Will fit the width to the contents without going outside itself or collapsing smaller than its content, though we will be using min-width in the case where there's no content. */
       height:20px; /* Prevent the span from defining the height of the input container which can't be multiline */
   }
   .autoExpand span {
