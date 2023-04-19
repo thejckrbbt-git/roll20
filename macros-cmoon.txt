@@ -58,3 +58,93 @@
 --Result| Oxen turn [! [^SkOps.total] !] vs. [! [^Turn.total] !]
 --!None| [[1d20+[^Turn.total] ]]
 }}
+
+#1.BOSS.MELEE
+!power {{
+--format|enemy
+--name|#sname
+--rightsub| Melee
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|melee} ]] [[ [$DMG] 2d20 ]] [[ [$DEF] 1d0 + @{target|defense} ]]
+
+--!^1Desc| The ** #sname ** appendage lunges at **@{target|token_name}**
+
+--!Melee:| **Melee Roll [! [^ATK.total] !] vs. [! [^DEF.total] !] Defense**
+
+--?? $ATK.total >= $DEF.total ?? !^1Success| ** #tname ** takes  **[^DMG]** damage
+--?? $ATK.total < $DEF.total ?? !^1Failure| ** #sname **  MISSES!
+}}
+
+#1.BOSS.RANGE 
+!power {{
+--format|enemy
+--name|#sname
+--rightsub| Torch
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|firearms} ]] [[ [$DMG] 4d20 ]] [[ [$DEF] 1d0 + @{target|defense} ]]
+
+--!^1Desc| The ** #sname ** appendage fires BEAM PLASMA at **@{target|token_name}**
+
+--!Attack:| **Attack Roll [! [^ATK.total] !] vs. [! [^DEF.total] !] Defense**
+
+--?? $ATK.total >= $DEF.total ?? !^1Success| ** #tname ** takes  **[^DMG]** damage //(minus armor)//
+--?? $ATK.total < $DEF.total ?? !^1Failure| ** #sname **  MISSES!
+}}
+
+
+2.BOSS.AOE 
+!power {{
+--format|enemy
+--name|#sname
+--rightsub| Torch
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|firearms} ]] [[ [$DMG] 3d20 ]]
+
+--!^1Desc| The ** #sname ** appendage fires PLASMA ARC in an front cone
+
+--!Attack:| **Attack Roll [! [^ATK.total] !] vs. RESISTANCE
+
+--!^1Success| ** PLASMA ARC** causes  **[^DMG]** damage to all targets in AOE
+
+}}
+
+2.BOSS.HEAL
+ !power {{
+--format|enemy
+--name|#sname
+--rightsub| Maint
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|firearms} ]] [[ [$DMG] 2d60 ]]
+
+--!^1Desc| The ** #sname ** appendage **REPAIRS** itself
+
+--!Attack:| **Attack Roll [! [^ATK.total] !] vs. RESISTANCE
+
+--!^ATK|  **$$#378805|REPAIR APPENDAGE fixes #tname  for  [^DMG] HP $$**
+
+}}
+
+2.BOSS.SWING
+!power {{
+--format|enemy
+--name|#sname
+--rightsub| Hammer
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|melee} ]] [[ [$DMG] 5d20 ]]
+
+--!^1Desc| The ** #sname ** appendage swings in an front cone
+
+--!Attack:| **Attack Roll [! [^ATK.total] !] vs. RESISTANCE
+
+--!^1Success| **HAMMER** causes  **[^DMG]** damage to all targets in AOE //(ignores armor)//
+
+}}
+
+
+
+
