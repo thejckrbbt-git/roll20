@@ -213,4 +213,4 @@
 --!^1Success| **HAMMER** causes  **[^DMG]** damage to all targets in AOE //(ignores armor)//
 
 }}
->>>>>>> 6c481f932271aeaf51d80def735deab755800503
+
