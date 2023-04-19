@@ -57,4 +57,160 @@
 --hroll| [[ [$Turn] 1d20 + ?{speed}  ]] [[ [$SkOps] 1d20 + @{Adney Roberts|Ops} ]]
 --Result| Oxen turn [! [^SkOps.total] !] vs. [! [^Turn.total] !]
 --!None| [[1d20+[^Turn.total] ]]
+<<<<<<< HEAD
 }}
+=======
+}}
+
+!power {{
+--bgcolor|#ffb703
+--name| @{selected|character_name}
+--!detail0| **@{selected|token_name}** attacks with a **@{selected|weap1}**
+
+--hroll | [[ [$Atk] 1d20 + @{selected|firearms} ]] [[ [$Dmg1] @{selected|weap1dmg} ]] [[ [$DmgCrit] [^$Dmg1] * @{selected|crit_mult}]]
+
+--Firearms Roll:| [! [^Atk.total] !] 
+--DMG:| [![ ^$Dmg.total ]!] **CRIT DMG:** [![ ^$CritDmg.total ]!] 
+
+}}
+
+
+!power {{
+--format|combat
+--name| @{selected|character_name}
+--!detail0| **@{selected|token_name}** attacks **@{target|character_name}** with a **@{selected|weap3}**
+
+--hroll | [[ [$Atk] 1d20 + @{selected|melee} ]] [[ [$Dmg] @{selected|weap1dmg}*@{selected|crit_dmg}/100 ]]
+
+--Melee Roll:| [! [^Atk.total] !] 
+--DMG:|[[@{selected|weap3dmg}]] **CRIT DMG:** 
+
+
+--Attack:|[^Atk.total] or [! [^Atk.total] !] vs AC
+--CRIT:|[^Dmg.total] or [! [^Dmg.total] !] vs AC
+
+}}
+
+
+#MELCHIZEDEK.RUNT
+!power {{
+--format|vehicle
+--name|MELCHIZEDEK
+--leftsub| @{selected|character_name}
+--rightsub|RUNT Pods
+~~~
+--!ACTION^1| **@{selected|token_name}** calls on the **MELCHIZEDEK** to fire its **RUNT** rocket pods.
+~~~
+--!^1DETAILS| • RUNT Pod carries 8x3 RUNTs 
+^^ • Area of effect is 5 units (25m) diameter 
+^^ • Range 256 units (1280m) 
+^^ •  Blast radius 1/2/3
+~~~
+--ATK#?{RUNTs Fired (1-8)|1}|[[ 1d20 + 7 ]] **AOE**: [[1d100+100]]/[[1d50+100]]/[[1d100]]
+}}
+
+#MELCHIZEDEK.PIPE
+!power {{
+--format|vehicle
+--name|MELCHIZEDEK
+--leftsub| @{selected|character_name}
+--rightsub|Pipe Rifle
+~~~
+--!^1ACTION| **@{selected|token_name}** calls on the **MELCHIZEDEK** to fire its **PIPE RIFLE** at **@{target|token_name}**.
+--!^1DETAILS| • DMG: 1d200+200
+^^ • 44m Cobalt Alloy Slug
+^^ • Area of effect is 1 unit (5m) 
+^^ • Range 170 units (850m) 
+^^ •  **PIERCE**s targets & armor
+~~~
+--SKILL:| [[1d20+3]] vs **@{target|defense}** (@{target|token_name}'s Defense)
+^^ **DMG:** [[1d200+200]]
+}}
+
+
+#1.BOSS.MELEE
+!power {{
+--format|enemy
+--name|#sname
+--rightsub| Melee
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|melee} ]] [[ [$DMG] 2d20 ]] [[ [$DEF] 1d0 + @{target|defense} ]]
+
+--!^1Desc| The ** #sname ** appendage lunges at **@{target|token_name}**
+
+--!Melee:| **Melee Roll [! [^ATK.total] !] vs. [! [^DEF.total] !] Defense**
+
+--?? $ATK.total >= $DEF.total ?? !^1Success| ** #tname ** takes  **[^DMG]** damage
+--?? $ATK.total < $DEF.total ?? !^1Failure| ** #sname **  MISSES!
+}}
+
+#1.BOSS.RANGE 
+!power {{
+--format|enemy
+--name|#sname
+--rightsub| Torch
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|firearms} ]] [[ [$DMG] 4d20 ]] [[ [$DEF] 1d0 + @{target|defense} ]]
+
+--!^1Desc| The ** #sname ** appendage fires BEAM PLASMA at **@{target|token_name}**
+
+--!Attack:| **Attack Roll [! [^ATK.total] !] vs. [! [^DEF.total] !] Defense**
+
+--?? $ATK.total >= $DEF.total ?? !^1Success| ** #tname ** takes  **[^DMG]** damage //(minus armor)//
+--?? $ATK.total < $DEF.total ?? !^1Failure| ** #sname **  MISSES!
+}}
+
+
+2.BOSS.AOE 
+!power {{
+--format|enemy
+--name|#sname
+--rightsub| Torch
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|firearms} ]] [[ [$DMG] 3d20 ]]
+
+--!^1Desc| The ** #sname ** appendage fires PLASMA ARC in an front cone
+
+--!Attack:| **Attack Roll [! [^ATK.total] !] vs. RESISTANCE
+
+--!^1Success| ** PLASMA ARC** causes  **[^DMG]** damage to all targets in AOE
+
+}}
+
+2.BOSS.HEAL
+ !power {{
+--format|enemy
+--name|#sname
+--rightsub| Maint
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|firearms} ]] [[ [$DMG] 2d60 ]]
+
+--!^1Desc| The ** #sname ** appendage **REPAIRS** itself
+
+--!Attack:| **Attack Roll [! [^ATK.total] !] vs. RESISTANCE
+
+--!^ATK|  **$$#378805|REPAIR APPENDAGE fixes #tname  for  [^DMG] HP $$**
+
+}}
+
+2.BOSS.SWING
+!power {{
+--format|enemy
+--name|#sname
+--rightsub| Hammer
+--leftsub|Zhukov Squid HTM
+
+--hroll| [[ [$ATK] 1d20 + @{selected|melee} ]] [[ [$DMG] 5d20 ]]
+
+--!^1Desc| The ** #sname ** appendage swings in an front cone
+
+--!Attack:| **Attack Roll [! [^ATK.total] !] vs. RESISTANCE
+
+--!^1Success| **HAMMER** causes  **[^DMG]** damage to all targets in AOE //(ignores armor)//
+
+}}
+>>>>>>> 6c481f932271aeaf51d80def735deab755800503
